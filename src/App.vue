@@ -1,29 +1,81 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="layout h-100">
+      <Layout class="h-100">
+          <Sider hide-trigger :style="{background: '#fff'}">
+              <Menu active-name="Form" theme="light" width="auto" @on-select="selectMenuItem">
+                  <template v-for="submenu in routes">
+                    <MenuItem v-if="!submenu.children || !submenu.children.length" :key="submenu.name" :name="submenu.name">
+                      {{submenu.name}}
+                    </MenuItem>
+                    <Submenu v-else :name="submenu.name" :key="submenu.name">
+                        <template slot="title">
+                            <!-- <Icon type="ios-navigate"></Icon> -->
+                            {{submenu.name}}
+                        </template>
+                        <MenuItem v-for="menuitem in submenu.children" :key="menuitem.name" name="menuitem.name">{{menuitem.name}}</MenuItem>
+                    </Submenu>
+                  </template>
+              </Menu>
+          </Sider>
+          <Layout :style="{padding: '0 24px 24px'}">
+              <Breadcrumb :style="{margin: '15px 0'}">
+                  <BreadcrumbItem v-for="path in fullpath" :key="path">{{path}}</BreadcrumbItem>
+              </Breadcrumb>
+              <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
+                  <router-view></router-view>
+              </Content>
+          </Layout>
+      </Layout>
     </div>
-    <router-view/>
-  </div>
 </template>
-
-<style lang="less">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+<script>
+import routes from '@/router/routes'
+export default {
+  name: 'Home',
+  data () {
+    return {
+      routes: routes
+    }
+  },
+  computed: {
+    fullpath () {
+      let arr = this.$route.fullPath.split('/').filter(item => item)
+      arr = arr.length === 0 ? ['/'] : arr
+      return arr
+    }
+  },
+  methods: {
+    selectMenuItem (menuitem) {
+      this.$router.push({ name: menuitem })
     }
   }
 }
+</script>
+<style lang="less">
+html,body,#app{
+  height: 100%;
+  overflow: hidden;
+}
+.h-100{
+  height: 100%;
+  overflow: hidden;
+}
+.layout{
+    border: 1px solid #d7dde4;
+    background: #f5f7f9;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.layout-logo{
+    width: 100px;
+    height: 30px;
+    background: #5b6270;
+    border-radius: 3px;
+    float: left;
+    position: relative;
+    top: 15px;
+    left: 20px;
+}
+
 </style>
