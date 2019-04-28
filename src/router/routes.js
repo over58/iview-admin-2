@@ -10,5 +10,10 @@ export default [
     path: '/contentEditable',
     name: 'contentEditable',
     component: () => import('@/views/ContentEditable')
+  },
+  {
+    path: '/chart',
+    name: 'chart',
+    component: () => import('@/views/Chart')
   }
 ]
