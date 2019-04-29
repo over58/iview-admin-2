@@ -63,6 +63,10 @@ export default {
     plotLine: {
       type: Object,
       default: null
+    },
+    notTimeStamp: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -144,7 +148,13 @@ export default {
       }
     },
     innerData () {
-      return this.mockData.pie.count_tendency
+      if (this.notTimeStamp) {
+        return this.data.map(item => {
+          return [Date.parse(item[0]), item[1]]
+        })
+      } else {
+        return this.data
+      }
     }
   },
   watch: {
@@ -232,10 +242,10 @@ export default {
     text-align: right;
   }
   &-content {
-    height: 400px;
+    height: 300px;
   }
   .simple{
-    height: 446px;
+    height: 346px;
   }
 }
 </style>

@@ -24,7 +24,6 @@
 import Highcharts from 'highcharts'
 import HighchartsNoData from 'highcharts/modules/no-data-to-display'
 import HighchartsExporting from 'highcharts/modules/exporting'
-import mockData from './mock.js'
 
 HighchartsNoData(Highcharts)
 HighchartsExporting(Highcharts)
@@ -49,8 +48,7 @@ export default {
   },
   data () {
     return {
-      chartInstance: null,
-      mockData: mockData
+      chartInstance: null
     }
   },
   computed: {
@@ -63,7 +61,7 @@ export default {
           type: 'pie'
         },
         title: {
-          text: this.title,
+          text: this.simple ? this.title : '',
           style: {
             fontWeight: 'bold'
           }
@@ -95,8 +93,14 @@ export default {
         },
         exporting: {
           enabled: true,
-          contextButton: {
-          }
+          buttons: {
+            contextButton: {
+              menuItems: [
+                'viewFullscreen', 'downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG'
+              ]
+            }
+          },
+          filename: this.title
         },
         series: [
           {
@@ -106,7 +110,7 @@ export default {
       }
     },
     innerData () {
-      return this.mockData.pie.count
+      return this.data
     }
   },
   watch: {
@@ -171,7 +175,10 @@ export default {
     text-align: right;
   }
   &-content {
-    height: 400px;
+    height: 300px;
+  }
+  .simple{
+    height: 346px;
   }
 }
 </style>

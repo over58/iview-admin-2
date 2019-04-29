@@ -1,22 +1,24 @@
 <template>
-  <Button type="primary" @click="toggle">{{value ? '退出全屏' : '全屏'}}</Button>
+  <Button type="primary" @click="toggle">{{full ? '退出全屏' : '全屏'}}</Button>
 </template>
 <script>
 export default {
   name: 'FullScreen',
   props: {
-    value: {
-      type: Boolean,
-      default: false
-    },
     elem: {
       type: HTMLDivElement,
       required: true
     }
   },
+  data () {
+    return {
+      full: false
+    }
+  },
   methods: {
     toggle () {
-      if (!this.value) {
+      this.full = !this.full
+      if (this.full) {
         if (this.elem.requestFullscreen) {
           this.elem.requestFullscreen()
         } else if (this.elem.webkitRequestFullscreen) {
@@ -37,7 +39,7 @@ export default {
           document.msExitFullscreen()
         }
       }
-      this.$emit('on-change', !this.value)
+      this.$emit('on-change', this.full)
     }
   }
 }

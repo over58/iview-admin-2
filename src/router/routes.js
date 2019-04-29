@@ -15,5 +15,25 @@ export default [
     path: '/chart',
     name: 'chart',
     component: () => import('@/views/Chart')
+  },
+  {
+    path: '/check',
+    name: 'check',
+    component: () => import('@/views/CheckBox')
+  },
+  {
+    path: '/btnpop',
+    name: 'btnpop',
+    component: () => import('@/views/BtnPop')
+  },
+  {
+    path: '/fullscreen',
+    name: 'fullscreen',
+    component: () => import('@/views/fullscreen')
+  },
+  {
+    path: '/countto',
+    name: 'countto',
+    component: () => import('@/views/CountTo')
   }
 ]

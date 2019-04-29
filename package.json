@@ -10,6 +10,7 @@
   "dependencies": {
     "@types/highcharts": "5.0.39",
     "core-js": "^2.6.5",
+    "countup": "^1.8.2",
     "highcharts": "^7.1.1",
     "iview": "^3.4.0",
     "vue": "^2.6.10",
