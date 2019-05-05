@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import FullScreen from '@/components/FullScreen.vue'
+import FullScreen from '@/components/Fullscreen.vue'
 export default {
   components: {
     FullScreen
