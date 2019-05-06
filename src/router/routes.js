@@ -35,5 +35,10 @@ export default [
     path: '/countto',
     name: 'countto',
     component: () => import('@/views/CountTo')
+  },
+  {
+    path: '/codemirror',
+    name: 'testCodemirror',
+    component: () => import('@/views/CodeMirr')
   }
 ]
