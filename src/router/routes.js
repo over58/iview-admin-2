@@ -35,5 +35,20 @@ export default [
     path: '/countto',
     name: 'countto',
     component: () => import('@/views/CountTo')
+  },
+  {
+    path: '/transition',
+    name: 'transition',
+    component: () => import('@/views/transition')
+  },
+  {
+    path: '/drawer',
+    name: 'drawer',
+    component: () => import('@/views/drawer')
+  },
+  {
+    path: '/modal',
+    name: 'modal',
+    component: () => import('@/views/modal')
   }
 ]
