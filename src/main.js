@@ -5,10 +5,14 @@ import store from './store/'
 import 'iview/dist/styles/iview.css'
 import iView from 'iview'
 import './directives/index'
+import 'codemirror/lib/codemirror.css'
 
+import codemirror from 'vue-codemirror'
+
+Vue.use(codemirror)
+Vue.use(iView)
 Vue.config.productionTip = false
 
-Vue.use(iView)
 new Vue({
   router,
   store,

@@ -1,12 +1,11 @@
 <template>
   <div ref="a" class="a">
     <FullScreen :elem="elem" v-if="elem"></FullScreen>
-    AAAA
   </div>
 </template>
 
 <script>
-import FullScreen from '@/components/FullScreen.vue'
+import FullScreen from '@/components/Fullscreen.vue'
 export default {
   components: {
     FullScreen

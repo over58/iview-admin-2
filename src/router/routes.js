@@ -50,5 +50,15 @@ export default [
     path: '/modal',
     name: 'modal',
     component: () => import('@/views/modal')
+  },
+  {
+    path: '/dropdown',
+    name: 'dropdown',
+    component: () => import('@/views/dropdown')
+  },
+  {
+    path: '/tabs',
+    name: 'tabs',
+    component: () => import('@/views/tabs')
   }
 ]
