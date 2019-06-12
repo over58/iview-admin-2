@@ -1,7 +1,7 @@
 <template>
     <div class="layout h-100">
       <Layout class="h-100">
-          <Sider hide-trigger :style="{background: '#fff', width: '0px'}" v-if="false">
+          <Sider hide-trigger :style="{background: '#fff', width: '0px'}">
               <Menu active-name="Form" theme="light" width="auto" @on-select="selectMenuItem">
                   <template v-for="submenu in routes">
                     <MenuItem v-if="!submenu.children || !submenu.children.length" :key="submenu.name" :name="submenu.name">

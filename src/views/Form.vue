@@ -1,14 +1,14 @@
 <template>
   <div class="form">
     <Form ref="myForm" :model="myForm" :rules="myFormRules" label-position="right" :label-width="100">
-      <Form-item label="a.b.c.d" prop="a.b.c.d" :rule="myFormRules.notInputEmpty">
+      <Form-item label="a.b.c.d" prop="a.b.c.d" :rules="myFormRules.notInputEmpty">
         <Input v-model="myForm.a.b.c.d" placeholder="Enter something..."/>
       </Form-item>
-      <Form-item label="b.c.d[0]" prop="b.c.d[0]" :rule="myFormRules.notInputEmpty">
+      <Form-item label="b.c.d[0]" prop="b.c.d[0]" :rules="myFormRules.notInputEmpty">
         <Input v-model="myForm.b.c.d[0]" placeholder="Enter something..."/>
       </Form-item>
 
-      <Form-item label="密码" prop="password" :rule="myFormRules.notInputEmpty">
+      <Form-item label="密码" prop="password" :rules="myFormRules.notInputEmpty">
         <Input type="password" v-model="myForm.password" placeholder="Enter something..."/>
       </Form-item>
       <Form-item label="再次输入密码" prop="repassword">
@@ -43,7 +43,7 @@ const repasswordValidator = (rule, value, callback) => {
 }
 let myFormRules = {
   notInputEmpty: [
-    { type: 'string', required: true, trigger: 'hover' }
+    { type: 'string', required: true, trigger: 'blur' }
   ],
   repassword: {
     validator: repasswordValidator, trigger: 'hover'

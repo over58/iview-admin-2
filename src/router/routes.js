@@ -60,5 +60,10 @@ export default [
     path: '/tabs',
     name: 'tabs',
     component: () => import('@/views/tabs')
+  },
+  {
+    path: '/tongxin',
+    name: 'tongxin',
+    component: () => import('@/views/tongxin/tongxin')
   }
 ]

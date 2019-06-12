@@ -82,7 +82,9 @@ export default {
     option () {
       return {
         chart: {
-          type: this.type
+          type: this.type,
+          // 图表缩放
+          zoomType: 'x'
         },
         title: {
           text: this.simple ? this.title : '',
@@ -166,7 +168,7 @@ export default {
     init () {
       Highcharts.setOptions({
         global: {
-          useUTC: true
+          useUTC: false
         },
         lang: {
           loading: '加载中...',

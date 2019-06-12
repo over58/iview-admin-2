@@ -52,6 +52,7 @@ export default {
         this.swipeMove(-this.index * this.pageWidth)
 
         once(this.wrap, 'webkitTransitionEnd', _ => {
+          console.log('once')
           this.wrap.classList.remove('swipe-transition')
           this.wrap.style.webkitTransform = ''
           this.swiping = false
