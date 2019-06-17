@@ -65,5 +65,10 @@ export default [
     path: '/tongxin',
     name: 'tongxin',
     component: () => import('@/views/tongxin/tongxin')
+  },
+  {
+    path: '/scroll',
+    name: 'scroll',
+    component: () => import('@/views/TestScroll')
   }
 ]

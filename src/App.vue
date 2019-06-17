@@ -53,19 +53,19 @@ export default {
 </script>
 <style lang="less">
 html,body,#app{
-  height: 100%;
-  overflow: hidden;
+  // height: 100%;
+  overflow: auto;
 }
 .h-100{
-  height: 100%;
-  overflow: hidden;
+  // height: 100%;
+  overflow: auto;
 }
 .layout{
     border: 1px solid #d7dde4;
     background: #f5f7f9;
     position: relative;
     border-radius: 4px;
-    overflow: hidden;
+    overflow: auto;
 }
 .layout-logo{
     width: 100px;
