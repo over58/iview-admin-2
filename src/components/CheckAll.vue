@@ -1,10 +1,7 @@
 <template>
   <div>
-    <div style="border-bottom: 1px solid #e9e9e9;padding-bottom:6px;margin-bottom:6px;">
-      <Checkbox :indeterminate="indeterminate" :value="checkAll"  @click.prevent.native="handleCheckAll">全选</Checkbox>
-      <Input v-model="search" style="width:300px;" placeholder="输入搜索值" @on-keyup="changeSearch" clearable icon="ios-search"/>
-    </div>
     <CheckboxGroup v-model="checkAllGroup" @on-change="checkAllGroupChange">
+      <Checkbox :indeterminate="indeterminate" :value="checkAll"  @click.prevent.native="handleCheckAll">{{allText}}</Checkbox>
       <Checkbox v-for="(item, index) in data" v-show="('' + item).indexOf(search) > -1" :key="index" :label="item"></Checkbox>
     </CheckboxGroup>
   </div>
@@ -21,6 +18,10 @@ export default {
       default: () => {
         return []
       }
+    },
+    allText: {
+      type: String,
+      default: '全选'
     }
   },
   data () {

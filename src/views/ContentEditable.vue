@@ -1,5 +1,5 @@
 <template>
-  <div class="haveInput" contenteditable="true" placeholder="请输入...">
+  <div class="haveInput" id="first" contenteditable="true" placeholder="请输入...">
 
   </div>
 </template>

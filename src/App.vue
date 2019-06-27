@@ -30,6 +30,7 @@
 </template>
 <script>
 import routes from '@/router/routes'
+let vm = null
 export default {
   name: 'Home',
   data () {
@@ -48,6 +49,10 @@ export default {
     selectMenuItem (menuitem) {
       this.$router.push({ name: menuitem })
     }
+  },
+  mounted () {
+    vm = this
+    console.log(vm)
   }
 }
 </script>
